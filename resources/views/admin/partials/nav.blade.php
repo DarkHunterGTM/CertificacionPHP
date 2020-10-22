@@ -17,8 +17,13 @@
             </a>
 
             <ul class="treeview-menu">
-              <li class="{{request()->routeIs('negocio.edit')? 'active': ''}}"><a href="{{route('negocio.edit', 1)}}">
-                <i class="fa fa-edit"></i>Inscripcion</a>
+              <li class="{{request()->is('Inscripciones')? 'active': ''}}">
+                  <a href="{{route('inscripciones.index')}}">
+                      <i class="fa fa-table"></i>Inscripciones</a>
+              </li>
+              <li class="{{request()->is('Estudiantes')? 'active': ''}}">
+                  <a href="{{route('estudiantes.index')}}">
+                      <i class="fa fa-table"></i>Estudiantes</a>
               </li>
             </ul>
         </li>

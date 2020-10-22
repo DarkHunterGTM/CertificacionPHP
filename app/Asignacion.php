@@ -11,7 +11,6 @@ class Asignacion extends Model
   protected $fillable = [
     'id',
     'profesorId',
-    'cicloId',
     'materiaId',
   ];
 }

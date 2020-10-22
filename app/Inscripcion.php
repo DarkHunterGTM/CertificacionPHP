@@ -12,5 +12,6 @@ class Inscripcion extends Model
     'id',
     'estudianteId',
     'gradoId',
+    'cicloId',
   ];
 }

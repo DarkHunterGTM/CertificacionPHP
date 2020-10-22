@@ -68,7 +68,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>BIG COLA</b></span>
+      <span class="logo-lg"><b>Centros Educativos</b></span>
     </a>
 
     <!-- Header Navbar -->
@@ -165,7 +165,7 @@
   <footer class="main-footer">
     <!-- To the right -->
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2020 <a href="#">VR Informática y Sistemas</a>.</strong> All rights reserved.
+    <strong><a href="#">Centros Educativos</a>.</strong> 
   </footer>
  <!-- /.control-sidebar -->
 

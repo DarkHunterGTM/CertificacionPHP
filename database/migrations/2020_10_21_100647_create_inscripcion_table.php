@@ -23,6 +23,9 @@ class CreateInscripcionTable extends Migration
             $table->unsignedInteger('gradoId')->nullable();
             $table->foreign('gradoId')->references('id')->on('grado')->onDelete('cascade');
 
+            $table->unsignedInteger('cicloId')->nullable();
+            $table->foreign('cicloId')->references('id')->on('ciclo')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

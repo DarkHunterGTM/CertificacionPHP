@@ -19,9 +19,6 @@ class CreateAsignacionTable extends Migration
             $table->unsignedInteger('profesorId')->nullable();
             $table->foreign('profesorId')->references('id')->on('profesor')->onDelete('cascade');
 
-            $table->unsignedInteger('cicloId')->nullable();
-            $table->foreign('cicloId')->references('id')->on('ciclo')->onDelete('cascade');
-
             $table->unsignedInteger('materiaId')->nullable();
             $table->foreign('materiaId')->references('id')->on('materia')->onDelete('cascade');
 
