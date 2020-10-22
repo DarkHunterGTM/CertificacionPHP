@@ -1,4 +1,4 @@
-var estudiantes_table = $('#estudiantes-table').DataTable({
+var pagos_table = $('#pagos-table').DataTable({
     "responsive": true,
     "processing": true,
     "info": true,
@@ -51,8 +51,8 @@ var estudiantes_table = $('#estudiantes-table').DataTable({
     "order": [0, 'desc'],
 
     "columns": [    {
-        "title": "Carnet",
-        "data": "carnet",
+        "title": "Fecha",
+        "data": "fecha",
         "width": "10%",
         "responsivePriority": 1,
         "render": function (data, type, full, meta) {
@@ -61,8 +61,8 @@ var estudiantes_table = $('#estudiantes-table').DataTable({
     },
 
       {
-            "title": "Estudiane",
-            "data": "nombre",
+            "title": "Mes",
+            "data": "mes",
             "width": "10%",
             "responsivePriority": 1,
             "render": function (data, type, full, meta) {
@@ -71,8 +71,8 @@ var estudiantes_table = $('#estudiantes-table').DataTable({
         },
 
         {
-        "title": "Dirección",
-        "data": "direccion",
+        "title": "Año",
+        "data": "anio",
         "width": "10%",
         "responsivePriority": 1,
         "render": function (data, type, full, meta) {
@@ -81,8 +81,8 @@ var estudiantes_table = $('#estudiantes-table').DataTable({
     },
 
     {
-        "title": "Teléfono",
-        "data": "telefono",
+        "title": "Monto",
+        "data": "monto",
         "width": "15%",
         "responsivePriority": 4,
         "render": function (data, type, full, meta) {
@@ -98,19 +98,7 @@ var estudiantes_table = $('#estudiantes-table').DataTable({
             var urlActual = $("input[name='urlActual']").val();
 
             if (full.estado == 1) {
-              return "<div id='" + full.id + "' class='text-center'>" +
-                  "<div class='float-left col-lg-4'>" +
-                  "<a href='" + urlActual + "/reinscripcion/" + full.id + "' class='resinscripcion-estudiante' >" +
-                  "<i class='fa fa-btn fa-table' title='Realizar Reinscripción'></i>" +
-                  "</a>" + "</div>" +
-                  "<div class='float-left col-lg-4'>" +
-                  "<a href='" + urlActual + "/edit/" + full.id + "' class='editar-estudiante' >" +
-                  "<i class='fa fa-btn fa-edit' title='Editar Estudiante'></i>" +
-                  "</a>" + "</div>"  +
-                 "<div class='float-left col-lg-4'>" +
-                   "<a href='pago/" + full.id + "' class='edit-pago' >" +
-                 "<i class='fa fa-btn fas fa-money-bill-alt' title='Ver Detalles de Pago'></i>" +
-                 "</a>" + "</div>";
+              return "sin acciones"
 
             } else {
                 return "sin Acciones"

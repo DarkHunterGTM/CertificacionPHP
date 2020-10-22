@@ -31,13 +31,27 @@ function(){
     Route::get( '/inscripciones/new' , 'InscripcionController@create')->name('inscripciones.new');
     Route::post( '/inscripciones/save/' , 'InscripcionController@store')->name('inscripciones.save');
 
-    //ruas de Estudiante
+    //rutas de Estudiante
     Route::get('estudiantes' , 'EstudianteController@index' )->name('estudiantes.index');
     Route::get( '/estudiantes/getJson/' , 'EstudianteController@getJson')->name('estudiantes.getJson');
     Route::get( '/estudiantes/reinscripcion/{estudiante}' , 'EstudianteController@reinscripcion')->name('estudiantes.reinscripcion');
     Route::post( '/estudiantes/reinscripcion' , 'EstudianteController@store1')->name('estudiantes.save1');
     Route::get( '/estudiantes/edit/{estudiante}' , 'EstudianteController@edit')->name('estudiantes.edit');
     Route::put( '/estudiantes/{estudiante}/update' , 'EstudianteController@update')->name('estudiantes.update');
+
+
+    //rutas de Personas
+    Route::get('personas' , 'PersonaController@index' )->name('personas.index');
+    Route::get( '/personas/getJson/' , 'PersonaController@getJson')->name('personas.getJson');
+    Route::get( '/personas/edit/{persona}' , 'PersonaController@edit')->name('personas.edit');
+    Route::put( '/personas/{persona}/update' , 'PersonaController@update')->name('personas.update');
+
+
+    //rutas de pago
+    Route::get('/pago/{estudiante}' , 'EstudianteController@show')->name('estudianes.show');
+    Route::get( '/pago/{pago}/getJsonPago/', 'EstudianteController@getJsonPago')->name('estudiantes.getJsonPago');
+    Route::get( '/pagos/new' , 'EstudianteController@create1')->name('pagos.new');
+    Route::post( '/pagos' , 'EstudianteController@store')->name('pagos.save');
 });
 
 

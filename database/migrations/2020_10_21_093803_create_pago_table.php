@@ -17,7 +17,8 @@ class CreatePagoTable extends Migration
             $table->increments('id');
             $table->date('fecha')->required();
             $table->decimal('monto', 8, 2)->required();
-
+            $table->string('mes', 50)->required();
+            $table->string('anio', 50)->required();
             $table->unsignedInteger('estudianteId')->nullable();
             $table->foreign('estudianteId')->references('id')->on('estudiante')->onDelete('cascade');
             $table->timestamps();

@@ -25,6 +25,10 @@
                   <a href="{{route('estudiantes.index')}}">
                       <i class="fa fa-table"></i>Estudiantes</a>
               </li>
+              <li class="{{request()->is('Estudiantes')? 'active': ''}}">
+                  <a href="{{route('personas.index')}}">
+                      <i class="fa fa-table"></i>Personas</a>
+              </li>
             </ul>
         </li>
         @endrole

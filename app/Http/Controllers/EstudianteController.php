@@ -8,6 +8,7 @@ use App\Inscripcion;
 use Illuminate\Support\Facades\Response;
 use App\Grado;
 use App\Ciclo;
+use App\Pago;
 use Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,11 @@ class EstudianteController extends Controller
           return view ('admin.estudiantes.index');
     }
 
+    public function index1()
+    {
+          return view ('admin.estudiantes.pago');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -36,9 +42,14 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
+    public function create1()
+    {
+      $ciclo = Ciclo::all();
+      return view('admin.estudiantes.createPago', compact('ciclo'));
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -47,7 +58,17 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pago = Pago::create([
+          'mes' => $request->mes,
+          'anio' => $request->anio,
+          'monto' => $request->monto,
+          'fecha' => '2020-01-01',
+          'estudianteId' => '1',
+        ]);
+
+        $pago->save();
+        return Response::json(['success'=>'éxito']);
+
     }
     public function store1(Request $request)
     {
@@ -70,7 +91,7 @@ class EstudianteController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.estudiantes.pago', compact('id'));
     }
 
     /**
@@ -119,6 +140,22 @@ class EstudianteController extends Controller
             'estudiante.estadoId as estado',
             'estudiante.id as id',
           )->get();
+
+        return Response::json($json);
+    }
+
+    public function getJsonPago(Request $params, $id)
+    {
+        $json['data'] = Estudiante::select(
+            'pago.fecha as fecha',
+            'pago.monto as monto',
+            'pago.mes as mes',
+            'pago.anio as anio',
+          )->join(
+            'pago' , 'pago.estudianteId', '=', 'estudiante.id'
+            )->where(
+              'estudiante.id', '=', $id
+              )->get();
 
         return Response::json($json);
     }

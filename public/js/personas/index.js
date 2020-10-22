@@ -1,4 +1,4 @@
-var estudiantes_table = $('#estudiantes-table').DataTable({
+var personas_table = $('#personas-table').DataTable({
     "responsive": true,
     "processing": true,
     "info": true,
@@ -51,8 +51,8 @@ var estudiantes_table = $('#estudiantes-table').DataTable({
     "order": [0, 'desc'],
 
     "columns": [    {
-        "title": "Carnet",
-        "data": "carnet",
+        "title": "DPI",
+        "data": "dpi",
         "width": "10%",
         "responsivePriority": 1,
         "render": function (data, type, full, meta) {
@@ -61,12 +61,11 @@ var estudiantes_table = $('#estudiantes-table').DataTable({
     },
 
       {
-            "title": "Estudiane",
-            "data": "nombre",
+            "title": "Nombre Completo",
             "width": "10%",
             "responsivePriority": 1,
             "render": function (data, type, full, meta) {
-                return (data);
+                return (full.nombre + ' '+full.apellido);
             },
         },
 
@@ -89,6 +88,7 @@ var estudiantes_table = $('#estudiantes-table').DataTable({
             return (data);
         },
     },
+
     {
         "title": "Acciones",
         "orderable": false,
@@ -100,20 +100,16 @@ var estudiantes_table = $('#estudiantes-table').DataTable({
             if (full.estado == 1) {
               return "<div id='" + full.id + "' class='text-center'>" +
                   "<div class='float-left col-lg-4'>" +
-                  "<a href='" + urlActual + "/reinscripcion/" + full.id + "' class='resinscripcion-estudiante' >" +
-                  "<i class='fa fa-btn fa-table' title='Realizar Reinscripción'></i>" +
-                  "</a>" + "</div>" +
-                  "<div class='float-left col-lg-4'>" +
-                  "<a href='" + urlActual + "/edit/" + full.id + "' class='editar-estudiante' >" +
-                  "<i class='fa fa-btn fa-edit' title='Editar Estudiante'></i>" +
-                  "</a>" + "</div>"  +
-                 "<div class='float-left col-lg-4'>" +
-                   "<a href='pago/" + full.id + "' class='edit-pago' >" +
-                 "<i class='fa fa-btn fas fa-money-bill-alt' title='Ver Detalles de Pago'></i>" +
-                 "</a>" + "</div>";
+                  "<a href='" + urlActual + "/edit/" + full.id + "' class='editar-Persona' >" +
+                  "<i class='fa fa-btn fa-edit' title='Editar Persona'></i>" +
+                  "</a>" + "</div>";
 
             } else {
-                return "sin Acciones"
+              return "<div id='" + full.id + "' class='text-center'>" +
+                  "<div class='float-left col-lg-4'>" +
+                  "<a href='" + urlActual + "/edit/" + full.id + "' class='editar-estudiante' >" +
+                  "<i class='fa fa-btn fa-edit' title='Editar Persona'></i>" +
+                  "</a>" + "</div>";
 
             }
 
