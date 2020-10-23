@@ -22,6 +22,7 @@
                           <div class="col-sm-4">
                               <label for="mes">Mes:</label>
                               <select name="mes" class="form-control">
+                                <option value="default">Seleccione Mes</option>
                                 <option value="Enero">Enero</option>
                                 <option value="Febrero">Febrero</option>
                                 <option value="Marzo">Marzo</option>
@@ -39,7 +40,13 @@
                           <div class="col-sm-4">
                               <label for="ciclo">Ciclo Escolar</label>
                               <select name="anio" class="form-control">
+                                  <option value="default">Seleccione Año</option>
                                   <option value="2020">2020</option>
+                                  <option value="2021">2021</option>
+                                  <option value="2022">2022</option>
+                                  <option value="2023">2023</option>
+                                  <option value="2024">2024</option>
+                                  <option value="2025">2025</option>
                               </select>
                           </div>
                       </div>
@@ -84,7 +91,7 @@
            event.preventDefault();
 
            var serializedData = $("#CrearPagoForm").serialize();
-
+           if ($('#CrearPagoForm').valid()) {
                $.ajax({
                    type: "POST",
                    headers: { 'X-CSRF-TOKEN': $('#tokenReset').val() },
@@ -104,8 +111,9 @@
                        alertify.error('Hubo un error al registrar el pago');
                    }
                })
-
+            }
        });
 
     </script>
+<script src="{{asset('js/estudiantes/create.js')}}"></script>
 @endpush

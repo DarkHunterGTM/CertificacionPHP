@@ -48,7 +48,7 @@
                       </div>
                         <br>
                         <div class="text-right m-t-15">
-                            <a class='btn btn-primary form-button' href="{{ route('estudiantes.index')}}">Regresar</a>
+                            <a class='btn btn-primary form-button' href="{{ route('personas.index')}}">Regresar</a>
                             <button id="ButtonCliente" class="btn btn-success form-button">Guardar</button>
                         </div>
 
@@ -70,5 +70,5 @@
 @push('scripts')
 
 
-<script src="{{asset('js/inscripciones/create.js')}}"></script>
+<script src="{{asset('js/personas/edit.js')}}"></script>
 @endpush

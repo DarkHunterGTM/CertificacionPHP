@@ -19,7 +19,7 @@ class UsersSeeder extends Seeder
 
         $superadminRole = Role::create(['name' => 'Super-Administrador']);
         $adminRole = Role::create(['name' => 'Administrador']);
-
+        $docenteRole = Role::create(['name' => 'Docente']);
 
         $user = new user;
         $user->name = 'Super Administrador';
@@ -38,7 +38,14 @@ class UsersSeeder extends Seeder
         $user->estado = 1;
         $user->save();
         $user->assignRole($adminRole);
- 
 
+        $user = new user;
+        $user->name = 'Docente';
+        $user->email= 'docente@gmail.com';
+        $user->password = bcrypt('docente');
+        $user->username = 'docente';
+        $user->estado = 1;
+        $user->save();
+        $user->assignRole($docenteRole);
     }
 }

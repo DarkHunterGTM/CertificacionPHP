@@ -21,6 +21,7 @@
                           <div class="col-sm-4">
                               <label for="mes">Grado:</label>
                               <select name="grado" class="form-control">
+                                  <option value="default">Seleccione Grado</option>
                                   @foreach ($grado as $g)
                                   <option value="{{$g->id}}">{{$g->nombre}}</option>
                                   @endforeach
@@ -65,7 +66,7 @@
            event.preventDefault();
 
            var serializedData = $("#CrearMateriaForm").serialize();
-
+            if ($('#CrearMateriaForm').valid()) {
                $.ajax({
                    type: "POST",
                    headers: { 'X-CSRF-TOKEN': $('#tokenReset').val() },
@@ -85,8 +86,8 @@
                        alertify.error('Hubo un error al registrar la materia');
                    }
                })
-
+            }
        });
-
     </script>
+    <script src="{{asset('js/materias/create.js')}}"></script>
 @endpush

@@ -136,133 +136,24 @@ $.validator.addMethod("dpi", function(value, element) {
       var regex = new RegExp("^(0+[1-9]|[1-9])[0-9]*$");
       return regex.test(value);
   },"Solo utilizar numeros");
-var validator = $("#InscripcionForm").validate({
+var validator = $("#EditarProfesorForm").validate({
     ignore: [],
     onkeyup: false,
     rules: {
-        nombre_estudiante: {
+        nombre: {
             required: true,
         },
-        carnet: {
-            required: true,
-        },
-        cui: {
+        dpi: {
             required: true,
             dpi: true,
-        },
-        telefono_estudiante: {
-            required: true,
-            ntel: true,
-            entero: true,
-        },
-        ciclo: {
-            required: true,
-            select: 'default'
-        },
-        genero_estudiante: {
-            required: true,
-            select: 'default'
-        },
-        direccion_estudiante: {
-            required: true
-        },
-        //validaciones informacion del padre
-        nombre_padre: {
-            required: true,
-        },
-        apellido_padre: {
-            required: true,
-        },
-        telefono_padre: {
-            required: true,
-            ntel: true,
-            entero: true,
-        },
-        dpi_padre: {
-            required: true,
-            dpi: true,
-        },
-        genero_padre: {
-            required: true,
-              select: 'default',
-        },
-        direccion_padre: {
-            required: true,
-        },
-        //validaciones informacion de la madre
-        nombre_madre: {
-            required: true,
-        },
-        apellido_madre: {
-            required: true,
-        },
-        telefono_madre: {
-            required: true,
-            ntel: true,
-            entero: true,
-        },
-        dpi_madre: {
-            required: true,
-            dpi: true,
-        },
-        genero_madre: {
-            required: true,
-              select: 'default'
-        },
-        direccion_madre: {
-            required: true,
         },
     },
     messages: {
-        nombre_estudiante: {
-            required: 'Por favor, ingrese el nombre del Estudiante',
+        nombre: {
+            required: 'Por favor, ingrese el nombre',
         },
-        carnet: {
-            required: 'Por favor, ingrese el numero de carnet del estudiante',
-        },
-        cui: {
-            required: 'Por favor, ingrese el número de cui del estudiante'
-        },
-        telefono_estudiante: {
-            required: 'Por favor, ingrese el número de telefono del estudiante',
-        },
-        direccion_estudiante: {
-            required: 'Por favor, ingrese la dirección del estudiante',
-        },
-        telefono_estudiante: {
-            required: 'Por favor, ingrese el número de telefono del estudiante',
-        },
-        //validacion del Padre
-        nombre_padre: {
-            required: 'Por favor, ingrese el nombre del padre',
-        },
-        apellido_padre: {
-            required: 'Por favor, ingrese el apellido del padre',
-        },
-        telefono_padre: {
-            required: 'Por favor, ingrese el número de teléfono',
-        },
-        dpi_padre: {
-            required: 'Por favor, ingrese el número de dpi del padre',
-        },
-        direccion_padre: {
-            required: 'Por favor, ingrese la dirección del padre',
-        },
-        //validacion del Madre
-        nombre_madre: {
-            required: 'Por favor, ingrese el nombre del madre',
-        },
-        apellido_madre: {
-            required: 'Por favor, ingrese el apellido del madre',
-        },
-        telefono_madre: {
-            required: 'Por favor, ingrese el número de teléfono',
-        },
-        dpi_madre: {
-            required: 'Por favor, ingrese el número de dpi del madre',
-        },
-        direccion_madre: {
-            required: 'Por favor, ingrese la dirección del madre',
+        dpi: {
+            required: 'Por favor, ingrese el número de dpi'
         },
     }
 });

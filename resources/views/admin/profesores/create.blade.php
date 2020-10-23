@@ -61,7 +61,7 @@
            event.preventDefault();
 
            var serializedData = $("#CrearProfesorForm").serialize();
-
+            if ($('#CrearProfesorForm').valid()) {
                $.ajax({
                    type: "POST",
                    headers: { 'X-CSRF-TOKEN': $('#tokenReset').val() },
@@ -81,8 +81,9 @@
                        alertify.error('Hubo un error al registrar la Profesor');
                    }
                })
-
+            }
        });
 
     </script>
+    <script src="{{asset('js/profesores/create.js')}}"></script>
 @endpush

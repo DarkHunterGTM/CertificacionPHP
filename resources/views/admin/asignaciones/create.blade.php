@@ -17,6 +17,7 @@
                   <div class="col-sm-4">
                       <label for="profesor">Profesor:</label>
                         <select name="profesorId" class="form-control">
+                          <option value="default">Seleccione Profesor</option>
                           @foreach ($p as $p)
                           <option value="{{$p->id}}">{{$p->nombre}}</option>
                           @endforeach
@@ -25,6 +26,7 @@
                           <div class="col-sm-4">
                               <label for="mes">Materia:</label>
                               <select name="materiaId" class="form-control">
+                                <option value="default">Seleccione Materia</option>
                                   @foreach ($g as $m)
                                   <option value="{{$m->id}}">{{$m->nombre}}</option>
                                   @endforeach
@@ -69,7 +71,7 @@
            event.preventDefault();
 
            var serializedData = $("#CrearAsignacionForm").serialize();
-
+            if ($('#CrearAsignacionForm').valid()) {
                $.ajax({
                    type: "POST",
                    headers: { 'X-CSRF-TOKEN': $('#tokenReset').val() },
@@ -89,8 +91,9 @@
                        alertify.error('Hubo un error al registrar la asignación');
                    }
                })
-
+            }
        });
 
     </script>
+<script src="{{asset('js/asignaciones/create.js')}}"></script>
 @endpush

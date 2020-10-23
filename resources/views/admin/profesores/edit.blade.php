@@ -99,4 +99,5 @@ $("#EditarProfesorForm").submit(function(event){
         }
     });
     </script>
+  <script src="{{asset('js/profesores/edit.js')}}"></script>
 @endpush

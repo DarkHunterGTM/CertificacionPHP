@@ -71,5 +71,5 @@
 @push('scripts')
 
 
-<script src="{{asset('js/inscripciones/create.js')}}"></script>
+<script src="{{asset('js/estudiantes/edit.js')}}"></script>
 @endpush

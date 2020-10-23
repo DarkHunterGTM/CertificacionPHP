@@ -17,6 +17,7 @@
                   <div class="col-sm-2">
                       <label for="mes">Mes:</label>
                       <select name="mes" class="form-control">
+                        <option value="default">Seleccione Mes</option>
                         <option value="Enero">Enero</option>
                         <option value="Febrero">Febrero</option>
                         <option value="Marzo">Marzo</option>
@@ -34,6 +35,7 @@
                   <div class="col-sm-2">
                       <label for="ciclo">Ciclo Escolar</label>
                       <select name="anio" class="form-control">
+                          <option value="default">Seleccione Año</option>
                           <option value="2020">2020</option>
                           <option value="2021">2021</option>
                           <option value="2022">2022</option>
@@ -52,3 +54,6 @@
         </div>
     </form>
 </div>
+@push('scripts')
+<script src="{{asset('js/estudiantes/create.js')}}"></script>
+@endpush

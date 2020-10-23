@@ -83,7 +83,7 @@ $("#EditarMateriaForm").submit(function(event){
                 error: function (errors) {
                     $('.loader').fadeOut(225);
                     $('#modalEditar').modal("hide");
-                    bodegas_table.ajax.reload();
+                    materias_table.ajax.reload();
                     alertify.set('notifier', 'position', 'top-center');
                     alertify.error('Ocurrió un error al editar.');
                 }
@@ -91,4 +91,6 @@ $("#EditarMateriaForm").submit(function(event){
         }
     });
     </script>
+
+        <script src="{{asset('js/materias/edit.js')}}"></script>
 @endpush
