@@ -63,7 +63,7 @@ class EstudianteController extends Controller
           'anio' => $request->anio,
           'monto' => $request->monto,
           'fecha' => '2020-01-01',
-          'estudianteId' => '1',
+          'estudianteId' => $request->id,
         ]);
 
         $pago->save();

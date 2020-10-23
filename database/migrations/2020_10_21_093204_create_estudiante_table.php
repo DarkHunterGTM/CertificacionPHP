@@ -23,8 +23,7 @@ class CreateEstudianteTable extends Migration
             $table->string('carnet', 25)->required();
 
 
-            $table->unsignedInteger('municipioId')->nullable();
-            $table->foreign('municipioId')->references('id')->on('municipio')->onDelete('cascade');
+
 
             $table->unsignedInteger('estadoId')->nullable();
             $table->foreign('estadoId')->references('id')->on('estado')->onDelete('cascade');

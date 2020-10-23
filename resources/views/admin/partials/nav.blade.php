@@ -31,6 +31,28 @@
               </li>
             </ul>
         </li>
+        <li class="treeview {{request()->is('negocio*')? 'active': ''}}">
+            <a href="#"><i class="fa fa-edit"></i> <span>Gestion Curso</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+
+            <ul class="treeview-menu">
+              <li class="{{request()->is('Materias')? 'active': ''}}">
+                  <a href="{{route('materias.index')}}">
+                      <i class="fa fa-table"></i>Materias</a>
+              </li>
+              <li class="{{request()->is('Profesores')? 'active': ''}}">
+                  <a href="{{route('profesores.index')}}">
+                      <i class="fa fa-table"></i>Profesores</a>
+              </li>
+              <li class="{{request()->is('asignaciones')? 'active': ''}}">
+                  <a href="{{route('asignaciones.index')}}">
+                      <i class="fa fa-table"></i>Asignación de Materias</a>
+              </li>
+            </ul>
+        </li>
         @endrole
 
 

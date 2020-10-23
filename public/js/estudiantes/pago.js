@@ -50,17 +50,7 @@ var pagos_table = $('#pagos-table').DataTable({
     },
     "order": [0, 'desc'],
 
-    "columns": [    {
-        "title": "Fecha",
-        "data": "fecha",
-        "width": "10%",
-        "responsivePriority": 1,
-        "render": function (data, type, full, meta) {
-                return (data);
-        },
-    },
-
-      {
+    "columns": [   {
             "title": "Mes",
             "data": "mes",
             "width": "10%",

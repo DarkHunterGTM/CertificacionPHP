@@ -16,7 +16,6 @@ class Estudiante extends Model
     'genero',
     'direccion',
     'carnet',
-    'municipioId',
     'estadoId',
   ];
 }

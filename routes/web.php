@@ -52,6 +52,30 @@ function(){
     Route::get( '/pago/{pago}/getJsonPago/', 'EstudianteController@getJsonPago')->name('estudiantes.getJsonPago');
     Route::get( '/pagos/new' , 'EstudianteController@create1')->name('pagos.new');
     Route::post( '/pagos' , 'EstudianteController@store')->name('pagos.save');
+
+    //rutas de las materias
+    Route::get('materias' , 'MateriaController@index' )->name('materias.index');
+    Route::get( '/materias/getJson/' , 'MateriaController@getJson')->name('materias.getJson');
+    Route::get( '/pagos/new' , 'MateriaController@create')->name('materias.new');
+    Route::post( '/materias/save/' , 'MateriaController@store')->name('materias.save');
+    Route::get( '/materias/edit/{materia}' , 'MateriaController@edit')->name('materias.edit');
+    Route::put( '/materias/{materia}/update' , 'MateriaController@update')->name('materias.update');
+
+    //rutas de profesores
+    Route::get('profesores' , 'ProfesorController@index' )->name('profesores.index');
+    Route::get( '/profesores/getJson/' , 'ProfesorController@getJson')->name('profesores.getJson');
+    Route::get( '/profesores/new' , 'ProfesorController@create')->name('profesores.new');
+    Route::post( '/profesores/save/' , 'ProfesorController@store')->name('profesores.save');
+    Route::get( '/profesores/edit/{profesor}' , 'ProfesorController@edit')->name('profesores.edit');
+    Route::put( '/profesores/{profesor}/update' , 'ProfesorController@update')->name('profesores.update');
+
+    //ruas de Asignacion de Materias
+    Route::get('asignaciones' , 'AsignacionMateriaController@index' )->name('asignaciones.index');
+    Route::get( '/asignaciones/getJson/' , 'AsignacionMateriaController@getJson')->name('asignaciones.getJson');
+    Route::get( '/asignaciones/new' , 'AsignacionMateriaController@create')->name('asignaciones.new');
+    Route::post( '/asignaciones/save/' , 'AsignacionMateriaController@store')->name('asignaciones.save');
+    Route::get( '/asignaciones/edit/{asignacion}' , 'AsignacionMateriaController@edit')->name('asignaciones.edit');
+    Route::put( '/asignaciones/{asignacion}/update' , 'AsignacionMaeriaController@update')->name('asignaciones.update');
 });
 
 
