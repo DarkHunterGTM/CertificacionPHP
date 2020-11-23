@@ -108,9 +108,11 @@ var estudiantes_table = $('#estudiantes-table').DataTable({
                   "<i class='fa fa-btn fa-edit' title='Editar Estudiante'></i>" +
                   "</a>" + "</div>"  +
                  "<div class='float-left col-lg-4'>" +
-                   "<a href='pago/" + full.id + "' class='edit-pago' >" +
-                 "<i class='fa fa-btn fas fa-money-bill-alt' title='Ver Detalles de Pago'></i>" +
-                 "</a>" + "</div>";
+                 "<div id='" + full.id + "' class='text-center'>" +
+                    "<div class='float-left col-lg-4'>" +
+                      "<a href='pagos/" + full.id + "' class='edit-pago' >" +
+                    "<i class='fa fa-btn fas fa-check-square' title='Ver inscripciones del Estudiante'></i>" +
+                    "</a>" + "</div>";
 
             } else {
                 return "sin Acciones"

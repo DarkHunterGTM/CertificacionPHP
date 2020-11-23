@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Centros Educativos</title>
+  <title>SIGACE</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   {{--<meta name="csrf-token" content="{{ csrf_token() }}">--}}
@@ -68,7 +68,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Centros Educativos</b></span>
+      <span class="logo-lg"><b>SIGACE</b></span>
     </a>
 
     <!-- Header Navbar -->
@@ -165,7 +165,7 @@
   <footer class="main-footer">
     <!-- To the right -->
     <!-- Default to the left -->
-    <strong><a href="#">Centros Educativos</a>.</strong> 
+    <strong><a href="#">SIGACE</a>.</strong>
   </footer>
  <!-- /.control-sidebar -->
 

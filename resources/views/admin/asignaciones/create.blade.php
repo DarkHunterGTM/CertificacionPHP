@@ -32,6 +32,15 @@
                                   @endforeach
                               </select>
                           </div>
+                          <div class="col-sm-4">
+                              <label for="mes">Ciclo:</label>
+                              <select name="ciclo" class="form-control">
+                                <option value="default">Seleccione ciclo</option>
+                                  @foreach ($c as $c)
+                                  <option value="{{$c->id}}">{{$c->anio}}</option>
+                                  @endforeach
+                              </select>
+                          </div>
                       </div>
                       <br>
 

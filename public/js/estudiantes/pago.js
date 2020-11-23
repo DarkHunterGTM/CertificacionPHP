@@ -51,8 +51,8 @@ var pagos_table = $('#pagos-table').DataTable({
     "order": [0, 'desc'],
 
     "columns": [   {
-            "title": "Mes",
-            "data": "mes",
+            "title": "Fecha",
+            "data": "fecha",
             "width": "10%",
             "responsivePriority": 1,
             "render": function (data, type, full, meta) {
@@ -61,8 +61,8 @@ var pagos_table = $('#pagos-table').DataTable({
         },
 
         {
-        "title": "Año",
-        "data": "anio",
+        "title": "Monto",
+        "data": "monto",
         "width": "10%",
         "responsivePriority": 1,
         "render": function (data, type, full, meta) {
@@ -71,8 +71,17 @@ var pagos_table = $('#pagos-table').DataTable({
     },
 
     {
-        "title": "Monto",
-        "data": "monto",
+        "title": "Tipo Pago",
+        "data": "tipo",
+        "width": "15%",
+        "responsivePriority": 4,
+        "render": function (data, type, full, meta) {
+            return (data);
+        },
+    },
+    {
+        "title": "Descripción",
+        "data": "descripcion",
         "width": "15%",
         "responsivePriority": 4,
         "render": function (data, type, full, meta) {

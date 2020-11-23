@@ -12,8 +12,8 @@ class Pago extends Model
     'id',
     'fecha',
     'monto',
-    'mes',
-    'anio',
-    'estudianteId',
+    'descripcion',
+    'tipoPagoId',
+    'inscripcionId',
   ];
 }

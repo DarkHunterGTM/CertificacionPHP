@@ -12,5 +12,6 @@ class Asignacion extends Model
     'id',
     'profesorId',
     'materiaId',
+    'cicloId',
   ];
 }

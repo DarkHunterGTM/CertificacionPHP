@@ -3,12 +3,12 @@
 @section('header')
     <section class="content-header">
         <h1>
-          Estudiantes
-          <small>Estudiantes</small>
+          Personas
+          <small>Persona</small>
         </h1>
         <ol class="breadcrumb">
           <li><a href="{{route('dashboard')}}"><i class="fa fa-tachometer-alt"></i> Inicio</a></li>
-          <li><a href="{{route('estudiantes.index')}}"><i class="fa fa-list"></i> Estudiantes</a></li>
+          <li><a href="{{route('estudiantes.index')}}"><i class="fa fa-list"></i> Personas</a></li>
           <li class="active">Editar</li>
         </ol>
     </section>

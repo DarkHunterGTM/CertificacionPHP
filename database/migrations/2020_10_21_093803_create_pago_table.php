@@ -17,10 +17,14 @@ class CreatePagoTable extends Migration
             $table->increments('id');
             $table->date('fecha')->required();
             $table->decimal('monto', 8, 2)->required();
-            $table->string('mes', 50)->required();
-            $table->string('anio', 50)->required();
-            $table->unsignedInteger('estudianteId')->nullable();
-            $table->foreign('estudianteId')->references('id')->on('estudiante')->onDelete('cascade');
+            $table->string('descripcion', 50)->required();
+
+            $table->unsignedInteger('tipoPagoId')->nullable();
+            $table->foreign('tipoPagoId')->references('id')->on('tipoPago')->onDelete('cascade');
+
+            $table->unsignedInteger('inscripcionId')->nullable();
+            $table->foreign('inscripcionId')->references('id')->on('inscripcion')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

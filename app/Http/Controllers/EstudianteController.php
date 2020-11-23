@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Response;
 use App\Grado;
 use App\Ciclo;
 use App\Pago;
+use App\TipoPago;
 use Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
@@ -58,12 +59,13 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
+        $date = date_format(date_create(), 'Y-m-d');
         $pago = Pago::create([
-          'mes' => $request->mes,
-          'anio' => $request->anio,
+          'tipoPagoId' => $request->pago,
+          'fecha' => $date,
+          'descripcion' => $request->descripcion,
           'monto' => $request->monto,
-          'fecha' => '2020-01-01',
-          'estudianteId' => $request->id,
+          'inscripcionId' => $request->id,
         ]);
 
         $pago->save();
@@ -91,7 +93,13 @@ class EstudianteController extends Controller
      */
     public function show($id)
     {
-        return view('admin.estudiantes.pago', compact('id'));
+        $tipo = TipoPago::all();
+        return view('admin.estudiantes.pago', compact('id','tipo'));
+    }
+
+    public function show1($id)
+    {
+        return view('admin.estudiantes.indexInscripciones', compact('id'));
     }
 
     /**
@@ -146,18 +154,40 @@ class EstudianteController extends Controller
 
     public function getJsonPago(Request $params, $id)
     {
-        $json['data'] = Estudiante::select(
+        $json['data'] = Inscripcion::select(
             'pago.fecha as fecha',
             'pago.monto as monto',
-            'pago.mes as mes',
-            'pago.anio as anio',
+            'pago.descripcion as descripcion',
+            'tipo_pago.nombre as tipo',
+            'inscripcion.id as id'
           )->join(
-            'pago' , 'pago.estudianteId', '=', 'estudiante.id'
-            )->where(
-              'estudiante.id', '=', $id
+            'pago' , 'pago.inscripcionId', '=', 'inscripcion.id',
+            )->join(
+              'tipo_pago', 'tipo_pago.id', '=', 'pago.tipoPagoId',
+              )->where(
+              'inscripcion.id', '=', $id
               )->get();
 
         return Response::json($json);
+    }
+
+    public function getJsonInscripciones(Request $params, $id)
+    {
+      $json['data'] = Inscripcion::select(
+          'grado.nombre as grado',
+          'ciclo.anio as anio',
+          'inscripcion.id as id',
+        )->join(
+          'estudiante', 'estudiante.id', '=', 'inscripcion.estudianteId'
+          )->join(
+            'grado', 'grado.id', '=', 'inscripcion.gradoId'
+            )->join(
+              'ciclo', 'ciclo.id', '=', 'inscripcion.cicloId'
+              )->where(
+                'estudiante.id', '=', $id
+                )->get();
+
+      return Response::json($json);
     }
 
     public function reinscripcion(Estudiante $estudiante)

@@ -71,6 +71,22 @@
             </ul>
         </li>
         @endrole
+        @role('Super-Administrador|Administrador')
+      <li class="treeview {{request()->is('users*')? 'active': ''}}">
+        <a href="#"><i class="fa fa-users"></i> <span>Gestion Usuarios</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+            @role('Super-Administrador|Administrador')
+          <li class="{{request()->is('users')? 'active': ''}}"><a href="{{route('users.index')}}">
+            <i class="fa fa-eye"></i>Usuarios</a>
+          </li>
+          @endrole
+        </ul>
+      </li>
+      @endrole
 
 
     </ul>

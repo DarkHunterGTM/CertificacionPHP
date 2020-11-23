@@ -7,6 +7,7 @@ use App\Asignacion;
 use App\Profesor;
 use App\Grado;
 use App\Materia;
+use App\Ciclo;
 use Illuminate\Support\Facades\Response;
 
 class AsignacionMateriaController extends Controller
@@ -20,7 +21,8 @@ class AsignacionMateriaController extends Controller
     {
         $p = Profesor::all();
         $g = Materia::all();
-        return view('admin.asignaciones.index', compact('p','g'));
+        $c = Ciclo::all();
+        return view('admin.asignaciones.index', compact('p','g','c'));
     }
 
     /**
@@ -44,6 +46,7 @@ class AsignacionMateriaController extends Controller
         $as = Asignacion::create([
           'materiaId' => $request->materiaId,
           'profesorId' => $request->profesorId,
+          'cicloId' => $request->ciclo,
         ]);
         $as->save();
         return Response::json(['success'=>'éxito']);
@@ -102,13 +105,16 @@ class AsignacionMateriaController extends Controller
           'profesor.nombre as profesor',
           'materia.nombre as materia',
           'grado.nombre as grado',
+          'ciclo.anio as ciclo',
         )->join(
           'profesor', 'profesor.id', '=', 'asignacion.profesorId',
           )->join(
             'materia', 'materia.id', '=', 'asignacion.materiaId',
             )->join(
               'grado', 'grado.id', '=', 'materia.gradoId'
-              )->get();
+              )->join(
+                'ciclo', 'ciclo.id', '=', 'asignacion.cicloId'
+                )->get();
 
         return Response::json($json);
 

@@ -15,15 +15,26 @@ Route::group([
     'middleware'=>['auth','estado'] ],
 function(){
   Route::get('/admin','HomeController@index')->name('dashboard');
+  //Route::get('users' , 'UsersController@index' )->name('users.index');
+  //  Route::post('users' , 'UsersController@store' )->name('users.store');
+  //  Route::delete('users/{user}' , 'UsersController@destroy' );
+  //  Route::post('users/update/{user}' , 'UsersController@update' );
+  //  Route::get('users/{user}/edit', 'UsersController@edit' );
+  //  Route::post('users/reset/tercero' , 'UsersController@resetPasswordTercero')->name('users.reset.tercero');
+  //  Route::post('users/reset' , 'UsersController@resetPassword')->name('users.reset');
+  //  Route::get( '/users/cargar' , 'UsersController@cargarSelect')->name('users.cargar');
+  //  Route::get( '/users/cargarA' , 'UsersController@cargarSelectApertura')->name('users.cargarA');
+
+  Route::get('user/getJson' , 'UsersController@getJson' )->name('users.getJson');
   Route::get('users' , 'UsersController@index' )->name('users.index');
-    Route::post('users' , 'UsersController@store' )->name('users.store');
-    Route::delete('users/{user}' , 'UsersController@destroy' );
-    Route::post('users/update/{user}' , 'UsersController@update' );
-    Route::get('users/{user}/edit', 'UsersController@edit' );
-    Route::post('users/reset/tercero' , 'UsersController@resetPasswordTercero')->name('users.reset.tercero');
-    Route::post('users/reset' , 'UsersController@resetPassword')->name('users.reset');
-    Route::get( '/users/cargar' , 'UsersController@cargarSelect')->name('users.cargar');
-    Route::get( '/users/cargarA' , 'UsersController@cargarSelectApertura')->name('users.cargarA');
+  Route::post('users' , 'UsersController@store' )->name('users.store');
+  Route::delete('users/{user}' , 'UsersController@destroy' );
+  Route::post('users/update/{user}' , 'UsersController@update' );
+  Route::get('users/{user}/edit', 'UsersController@edit' );
+  Route::post('users/reset/tercero' , 'UsersController@resetPasswordTercero')->name('users.reset.tercero');
+  Route::post('users/reset' , 'UsersController@resetPassword')->name('users.reset');
+  Route::get( '/users/cargar' , 'UsersController@cargarSelect')->name('users.cargar');
+  Route::get( '/users/cargarA' , 'UsersController@cargarSelectApertura')->name('users.cargarA');
 
     //rutas de inscripciones
     Route::get('inscripciones' , 'InscripcionController@index' )->name('inscripciones.index');
@@ -49,7 +60,9 @@ function(){
 
     //rutas de pago
     Route::get('/pago/{estudiante}' , 'EstudianteController@show')->name('estudianes.show');
+    Route::get('/pagos/{estudiante}' , 'EstudianteController@show1')->name('estudianes.show1');
     Route::get( '/pago/{pago}/getJsonPago/', 'EstudianteController@getJsonPago')->name('estudiantes.getJsonPago');
+    Route::get( '/pagos/{pago}/getJsonInscripciones/', 'EstudianteController@getJsonInscripciones')->name('estudiantes.getJsonInscripciones');
     Route::get( '/pagos/new' , 'EstudianteController@create1')->name('pagos.new');
     Route::post( '/pagos' , 'EstudianteController@store')->name('pagos.save');
 

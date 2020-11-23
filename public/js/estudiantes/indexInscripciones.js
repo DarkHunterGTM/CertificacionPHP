@@ -1,4 +1,4 @@
-var asignaciones_table = $('#asignaciones-table').DataTable({
+var inscripcionesPagos_table = $('#inscripcionesPagos-table').DataTable({
     "responsive": true,
     "processing": true,
     "info": true,
@@ -50,43 +50,25 @@ var asignaciones_table = $('#asignaciones-table').DataTable({
     },
     "order": [0, 'desc'],
 
-    "columns": [    {
-        "title": "Profesor",
-        "data": "profesor",
-        "width": "10%",
-        "responsivePriority": 1,
-        "render": function (data, type, full, meta) {
-                return (data);
-        },
-    },
-
-      {
-            "title": "Materia",
-            "data": "materia",
+    "columns": [   {
+            "title": "Grado",
+            "data": "grado",
             "width": "10%",
             "responsivePriority": 1,
             "render": function (data, type, full, meta) {
                 return (data);
             },
         },
-          {
-        "title": "grado",
-        "data": "grado",
+
+        {
+        "title": "Ciclo",
+        "data": "anio",
         "width": "10%",
         "responsivePriority": 1,
         "render": function (data, type, full, meta) {
-            return (data);
+                return (data);
         },
     },
-    {
-          "title": "Ciclo",
-          "data": "ciclo",
-          "width": "10%",
-          "responsivePriority": 1,
-          "render": function (data, type, full, meta) {
-              return (data);
-          },
-      },
     {
         "title": "Acciones",
         "orderable": false,
@@ -96,21 +78,18 @@ var asignaciones_table = $('#asignaciones-table').DataTable({
             var urlActual = $("input[name='urlActual']").val();
 
             if (full.estado == 1) {
-              return "Sin Acciones"
-              //"<div id='" + full.id + "' class='text-center'>" +
-              //  "<div class='float-left col-lg-6'>" +
-              //  "<a id='modalAsignacionEditar' class='edit-asignacion'>" +
-              //  "<i class='fa fa-btn fa-edit' title='Editar Asignacion'></i>" +
-              //  "</a>" + "</div>";
+              return "<div id='" + full.id + "' class='text-center'>" +
+                 "<div class='float-left col-lg-4'>" +
+                   "<a href='/" + full.id + "' class='edit-pago' >" +
+                 "<i class='fa fa-btn fas fa-money-bill-alt' title='Ver Detalles de Pago'></i>" +
+                 "</a>" + "</div>";
 
             } else {
-              return "Sin Acciones"
-              //"<div id='" + full.id + "' class='text-center'>" +
-                //"<div class='float-left col-lg-6'>" +
-                //"<a id='modalAsignacionEditar' class='edit-asignacion'>" +
-                //"<i class='fa fa-btn fa-edit' title='Editar Asignacion'></i>" +
-                //"</a>" + "</div>"
-
+              return "<div id='" + full.id + "' class='text-center'>" +
+                 "<div class='float-left col-lg-4'>" +
+                   "<a href='/pago/" + full.id + "' class='edit-pago' >" +
+                 "<i class='fa fa-btn fas fa-money-bill-alt' title='Ver Detalles de Pago'></i>" +
+                 "</a>" + "</div>";
 
             }
 
